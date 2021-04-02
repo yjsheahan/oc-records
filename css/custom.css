@@ -1,0 +1,272 @@
+body {
+  background-color: #363637;
+}
+
+h1, h2, h4, a, label  {
+  font-family: 'Oswald', sans-serif;
+  font-style: 700;
+}
+
+h2 {
+  font-size: 6vw;
+}
+
+h4 {
+  font-size: 4vw;
+  letter-spacing: -.05em;
+}
+
+p, input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFFFF !important;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding: 0 1rem;
+}
+
+.text-orange {
+  color: #FD5F00;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.bg-grey {
+  background-color: #363637;
+}
+
+.bg-orange {
+  background-color: #FD5F00;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+/* Page divider */
+.divider {
+  width: 100%;
+  display: block;
+  height: 1px;
+  background-color: #FFFFFF;
+  opacity: 40%;
+}
+
+button.btn-black, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  background-color: #000000;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border: none;
+  transition: border 1s ease;
+}
+
+input {
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  transition: border 1s ease;
+}
+
+button.btn-black a, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  color: #FFFFFF;
+  font-family: 'Oswald', sans-serif;
+  font-style: 700;
+}
+
+input[type="email"] {
+  padding: 8px 12px;
+}
+
+button.btn-black:hover, input[type="submit"]:hover {
+  border: solid 1px #FFFFFF;
+}
+
+p:empty:before {
+  display: none;
+}
+
+
+/* HEADER STYLING */
+header {
+  background-color: rgba(0,0,0,0.64);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+}
+
+header h1 {
+  font-size: 8vw;
+  letter-spacing: -0.1em
+}
+
+nav.main-navigation ul {
+  justify-content: flex-end;
+}
+
+div.popup-overlay {
+  width: 400px;
+  height: 280px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+  border: solid 1px black;
+  display: none;
+}
+
+/*  LANDING-PAGE BANNER */
+div.hero-home {
+  max-height: 90vh;
+}
+
+div.hero-divider {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+}
+
+div.line {
+  height: 1px;
+  flex-grow: 1;
+  display: block;
+}
+
+.bg-mds {
+  background-image: url("http://orangecountyrecords.local/wp-content/uploads/2021/03/MacBook-Pro-1-scaled.jpg"); /* The image used */
+  background-color: #363637;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+/* ARTISTS INDEX */
+div.artist-card {
+  width: 280px;
+  height: auto;
+}
+
+div.artist-card-img {
+  width: 280px;
+  height: 392px;
+  border: solid 1px #FFFFFF;
+  filter: grayscale(100%);
+  background-position: center;
+}
+
+div.artist-card-text {
+  border-left: solid 1px #FFFFFF;
+  border-right: solid 1px #FFFFFF;
+  border-bottom: solid 1px #FFFFFF;
+}
+
+.hover {
+  border-color: #000000;
+  filter: none;
+  background-color: #363637;
+  fill: #000000;
+}
+
+.divider-hover {
+  background-color: #000000;
+}
+
+div.artist-card-links svg {
+  margin: 0 4px;
+}
+
+/* INDIVIDUAL ARTIST PAGE */
+div.artist-page-img {
+  width: 496px;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+}
+
+div.artist-banner.aspect-ratio {
+  position: relative;
+  height: auto;
+}
+
+div.artist-banner.aspect-ratio--object {
+  position: relative;
+}
+
+div.artist-banner.aspect-ratio--4x3 {
+  padding-bottom: 0;
+}
+
+div.artist-page-img.aspect-ratio {
+  height: none;
+}
+
+div.artist-banner-svg a {
+  padding: 0 4px;
+}
+
+/* NEWS INDEX */
+
+@media (max-width: 786px) {
+  div.footer-links {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  ul.footer-nav {
+    padding-top: 1rem;
+  }
+
+  ul li {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  h4 {
+    font-size: 5vw;
+  }
+
+  div.footer-links ul {
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div.footer-links ul li {
+    padding: 1rem;
+  }
+
+  ul.footer-nav {
+    padding-top: 0;
+  }
+
+  section.home-text h4 {
+    font-size: 8vw;
+  }
+}

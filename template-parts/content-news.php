@@ -20,7 +20,7 @@
     $query = new WP_Query( $args );
 
     if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
-        <div class="fl w-third-ns pa4">
+        <div class="fl w-100 w-third-ns pa4">
           <div class="bg-white pb4">
              <div class="aspect-ratio aspect-ratio--1x1">
                   <div style="<?php if( get_field('image') ): ?>

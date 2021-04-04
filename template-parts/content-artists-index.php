@@ -20,7 +20,7 @@
 
     if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
         <div class="fl w-100 w-50-ns pa2 flex flex-column justify-center items-center mb4">
-          <div class="artist-card">
+          <div class="artist-card" id="fade-in">
             <a href="<?php the_permalink(); ?>">
               <div class="aspect-ratio aspect-ratio--5x7">
                   <div style="<?php if( get_field('image') ): ?>

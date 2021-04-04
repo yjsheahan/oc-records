@@ -1,3 +1,32 @@
+@keyframes fadeIn {
+  0% { opacity: 0%; }
+  100% { opacity: 100%; }
+}
+
+#fade-in {
+  opacity: 0;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slidedown {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
 body {
   background-color: #363637;
 }
@@ -103,14 +132,6 @@ button.btn-black a {
   font-style: 700;
 }
 
-/*svg {
-  transition: fill 1s;
-}
-
-div.artist-banner-svg svg:hover {
-  fill: #000000;
-}*/
-
 input[type="email"] {
   padding: 8px 12px;
 }
@@ -129,11 +150,14 @@ p:empty:before {
   display: none;
 }
 
+video {
+  filter: grayscale(100%);
+}
 
 /* HEADER STYLING */
 header {
-  background-color: rgba(0,0,0,0.64);
-  position: fixed;
+/*  background-color: rgba(0,0,0,0.64);
+*/  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -142,11 +166,20 @@ header {
 
 header h1 {
   font-size: 8vw;
-  letter-spacing: -0.1em
+  letter-spacing: -0.1em;
 }
+
 
 nav.main-navigation ul {
   justify-content: flex-end;
+}
+
+.home header h1 {
+  animation: fadein 3s 1s both;
+}
+
+.home nav.main-navigation ul {
+  animation: fadein 3s 2s both;
 }
 
 div.popup-overlay {
@@ -290,7 +323,7 @@ div.news-card {
 }
 
 div.news-card:hover {
-  border: solid 1px #000;
+  border: solid 1px #FFFFFF;
 }
 
 section.overlay-news {
@@ -303,12 +336,27 @@ section.overlay-news {
   overflow-y: scroll;
   z-index: 101;
 }
+section.title-mds {
+  padding-top: 172px;
+  padding-bottom: 40px;
+}
 
 /*.page-id-60 header {
   background-color: #000;
 }*/
 
+@media (min-width: 1441px) {
+  section.title-mds h2 {
+    padding-top: 120px;
+  }
+}
+
 @media (max-width: 786px) {
+  section.title-mds {
+    padding-top: 112px;
+    padding-bottom: 16px;
+  }
+
   div.footer-links {
     flex-direction: column-reverse;
     justify-content: center;
@@ -339,11 +387,20 @@ section.overlay-news {
   section.artist-bio p {
     padding-top: 2rem;
   }
+
+  section.artist-banner {
+    padding-top: 64px;
+  }
 }
 
 @media (max-width: 425px) {
   h4 {
     font-size: 5vw;
+  }
+
+  section.title-mds {
+    padding-top: 80px;
+    padding-bottom: 16px;
   }
 
   div.footer-links ul {
@@ -372,7 +429,7 @@ section.overlay-news {
   }
 
   header.site-header h1 {
-    padding-top: 0.75rem;
+    padding-top: 0.25rem;
     padding-bottom: 0.75rem;
   }
 
@@ -391,5 +448,9 @@ section.overlay-news {
 
   div.releases-divider h4 {
     font-size: 10vw;
+  }
+
+  section.artist-banner {
+    padding-top: 20px;
   }
 }

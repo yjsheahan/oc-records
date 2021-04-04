@@ -10,54 +10,33 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				ocrecords_posted_on();
-				ocrecords_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+  <div class="post-page min-vh-100">
+    <section class="title-mds bg-mds pt6 pb4">
+      <h2 class="text-white ttu tc mb2"><?php the_title(); ?></h2>
+      <h4 class="text-white tc mv0 f4"><?php the_date(); ?></h4>
+    </section>
 
-	<?php ocrecords_post_thumbnail(); ?>
+    <section class="ph6-l ph5-m ph4 text-white lh-copy f4 pv5" id="fade-in">
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ocrecords' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+      <div class="aspect-ratio aspect-ratio--1x1">
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ocrecords' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+      <div class="fl artist-banner aspect-ratio aspect-ratio--4x3 pr4-ns pb4-ns">
+          <div style="<?php if( get_field('image') ): ?>
+          background-image: url(<?php the_field('image'); ?>); ?>
+          <?php endif; ?>" class="artist-banner artist-page-img aspect-ratio--object cover"></div>
+      </div>
+      <?php the_content(); ?>
+      <div class="flex justify-center items-center">
+        <?php if ( get_field('artist_page') ): ?>
+          <button class="btn-black tc flex justify-center items-center">
 
-	<footer class="entry-footer">
-		<?php ocrecords_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+            <a class="ttu" href="<?php the_field('artist_page'); ?>">
+              About Artist
+            </a>
+          </button>
+        <?php endif; ?>
+      </div>
+    </section>
+
 </article><!-- #post-<?php the_ID(); ?> -->

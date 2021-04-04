@@ -86,17 +86,19 @@
     $query = new WP_Query( $args );
 
     if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
-        <div class="release-card fl w-100 w-third-ns pa4">
+        <div class="release-card fl w-100 w-third-ns pa4" id="fade-in">
           <div class="bg-white">
-             <div class="aspect-ratio aspect-ratio--1x1">
-                  <div style="<?php if( get_field('image') ): ?>
-                  background-image: url(<?php the_field('image'); ?>); ?>
-                  <?php endif; ?>" class="news-img aspect-ratio--object cover"></div>
+            <a href="<?php the_permalink(); ?>">
+               <div class="aspect-ratio aspect-ratio--1x1">
+                    <div style="<?php if( get_field('image') ): ?>
+                    background-image: url(<?php the_field('image'); ?>); ?>
+                    <?php endif; ?>" class="news-img aspect-ratio--object cover"></div>
+                </div>
+                <div class="w-100 flex flex-column justify-center ph4 pv3 text-black">
+                <h4 class="f2 ma0 tl"><?php the_field('artist_name'); ?></h4>
+                <p class="ma0 ttc"><?php the_field('title_of_release'); ?></p>
               </div>
-              <div class="w-100 flex flex-column justify-center ph4 pv3">
-              <h4 class="f2 ma0 tl"><?php the_field('artist_name'); ?></h4>
-              <p class="ma0"><?php the_field('title_of_release'); ?></p>
-            </div>
+            </a>
           </div>
         </div>
 

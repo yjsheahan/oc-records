@@ -1,9 +1,9 @@
 <div class="news bg-white text-black min-vh-100">
-  <section class="title-mds bg-white pt6 pb4">
+  <section class="title-mds bg-white pt6 pb2">
     <h2 class="text-black ttu tc"><?php the_title(); ?></h2>
   </section>
 
-  <section class="news-card-index mw9 center ph3-ns">
+  <section class="news-card-index mw9 center ph3-ns pb4">
     <div class="cf ph2-ns">
     <?php
 
@@ -20,8 +20,8 @@
     $query = new WP_Query( $args );
 
     if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
-        <div class="fl w-100 w-third-ns pa4">
-          <div class="bg-white pb4">
+        <div class="news-card fl w-100 w-third-ns pa4">
+          <div class="bg-white">
              <div class="aspect-ratio aspect-ratio--1x1">
                   <div style="<?php if( get_field('image') ): ?>
                   background-image: url(<?php the_field('image'); ?>); ?>
@@ -42,9 +42,15 @@
           </div>
         </div>
 
+<!--         <section class="overlay-news bg-orange text-black flex flex-column justify-center items-center pv6 ph4">
+          <?php the_title(); ?>
+          <?php the_content(); ?>
+        </section> -->
+
     <?php endwhile; endif; ?>
           </div>
 
   </section>
 
 </div>
+

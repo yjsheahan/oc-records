@@ -1,5 +1,5 @@
 <div class="artist-page mt5">
-  <section class="pt6 pb5 ph6 flex justify-around items-center artist-banner">
+  <section class="pt6-l pt4-m pb5-l ph6-l ph4 flex justify-around items-center artist-banner">
 
     <div class="artist-banner aspect-ratio aspect-ratio--4x3">
         <div style="<?php if( get_field('image') ): ?>
@@ -7,9 +7,9 @@
         <?php endif; ?>" class="artist-banner artist-page-img aspect-ratio--object cover"></div>
     </div>
 
-    <div class="flex flex-column justify-center items-end">
-      <h4 class="ttu text-black bg-white pl5 pr4 pv2 tracked ma0 tr"><?php the_title(); ?></h4>
-        <div class="pv4 artist-banner-svg">
+    <div class="artist-heading flex flex-column justify-center items-end">
+      <h4 class="ttu text-black bg-white pl5-l pl4 pr4 pv2 tracked ma0 tr"><?php the_title(); ?></h4>
+        <div class="pv4-l pv3 artist-banner-svg">
          <?php if( get_field('apple_music') ) { ?>
           <a href="<?php echo get_field('apple_music'); ?>">
             <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 26 26" width="32px" height="32px"><path d="M 23.933594 18.945313 C 23.335938 20.269531 23.050781 20.863281 22.28125 22.03125 C 21.210938 23.667969 19.695313 25.707031 17.820313 25.71875 C 16.15625 25.734375 15.726563 24.632813 13.464844 24.652344 C 11.203125 24.660156 10.730469 25.738281 9.0625 25.722656 C 7.191406 25.707031 5.757813 23.867188 4.683594 22.238281 C 1.679688 17.664063 1.363281 12.300781 3.21875 9.449219 C 4.53125 7.425781 6.609375 6.238281 8.5625 6.238281 C 10.546875 6.238281 11.796875 7.328125 13.441406 7.328125 C 15.035156 7.328125 16.003906 6.234375 18.304688 6.234375 C 20.039063 6.234375 21.878906 7.179688 23.191406 8.816406 C 18.894531 11.167969 19.59375 17.304688 23.933594 18.945313 Z M 16.558594 4.40625 C 17.394531 3.335938 18.027344 1.820313 17.800781 0.277344 C 16.433594 0.371094 14.839844 1.242188 13.90625 2.367188 C 13.0625 3.394531 12.363281 4.921875 12.636719 6.398438 C 14.125 6.445313 15.664063 5.558594 16.558594 4.40625 Z"/></svg>
@@ -57,9 +57,52 @@
     </div>
 
   </section>
+  <section class="artists-divider">
+  <div class="line bg-white w-50" style="margin: auto; opacity: 30%;"></div>
+  </section>
+  <section class="artist-bio pb5 ph6-l ph5-m ph4 text-white tracked-tight">
+    <?php the_content(); ?>
+  </section>
+  <section class="bg-orange mw9 pb4 center">
+    <div class="releases-divider flex w-100">
+      <div class="line bg-black artist-divider"></div>
+      <h4 class="text-black ph4 tc mv4 mh0">Releases</h4>
+      <div class="line bg-black artist-divider"></div>
+    </div>
+    <div class="cf ph4">
+    <?php
 
-  <section class="pb4 ph6-ns ph4 text-white tracked-tight">
-    <p><?php the_content(); ?></p>
+    $background = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
+
+
+    $args = array(
+      'posts_per_page' => -1,
+      'post_type' => 'post',
+      'orderby' => 'date',
+      'order' => 'ASC',
+      'tag' => 'cino-payso'
+    );
+
+    $query = new WP_Query( $args );
+
+    if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
+        <div class="release-card fl w-100 w-third-ns pa4">
+          <div class="bg-white">
+             <div class="aspect-ratio aspect-ratio--1x1">
+                  <div style="<?php if( get_field('image') ): ?>
+                  background-image: url(<?php the_field('image'); ?>); ?>
+                  <?php endif; ?>" class="news-img aspect-ratio--object cover"></div>
+              </div>
+              <div class="w-100 flex flex-column justify-center ph4 pv3">
+              <h4 class="f2 ma0 tl"><?php the_field('artist_name'); ?></h4>
+              <p class="ma0"><?php the_field('title_of_release'); ?></p>
+            </div>
+          </div>
+        </div>
+
+    <?php endwhile; endif; ?>
+    </div>
+
   </section>
 </div>
 

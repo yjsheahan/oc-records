@@ -56,7 +56,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex items-center justify-center">
+    <div class="copyright flex items-center justify-center">
       <p class="pt3 pb0 ma0 flex items-center justify-center f7"><img class="pr2" style="width: 30px;" src="https://img.icons8.com/windows/32/ffffff/copyright.png"/> Orange County Records UK Ltd. <?php echo date('Y'); ?></p>
 	  </div>
   </footer><!-- #colophon -->

@@ -83,25 +83,46 @@ button.btn-black, button, input[type="button"], input[type="reset"], input[type=
 }
 
 input {
-  background-color: #FFFFFF;
+  background-color: #000000;
   padding: 1rem 2rem;
   border: none;
   outline: none;
   transition: border 1s ease;
 }
 
-button.btn-black a, button, input[type="button"], input[type="reset"], input[type="submit"] {
+button.btn-black, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  color: #FFFFFF;
+  font-family: 'Oswald', sans-serif;
+  font-style: 700;
+  transition: background-color 1s;
+}
+
+button.btn-black a {
   color: #FFFFFF;
   font-family: 'Oswald', sans-serif;
   font-style: 700;
 }
 
+/*svg {
+  transition: fill 1s;
+}
+
+div.artist-banner-svg svg:hover {
+  fill: #000000;
+}*/
+
 input[type="email"] {
   padding: 8px 12px;
 }
 
+input[type="email"]:focus {
+  background-color: #363637;
+}
+
 button.btn-black:hover, input[type="submit"]:hover {
-  border: solid 1px #FFFFFF;
+/*  border: solid 1px #FFFFFF;
+*/
+  background-color: #FD5F00;
 }
 
 p:empty:before {
@@ -140,6 +161,26 @@ div.popup-overlay {
   display: none;
 }
 
+.page-id-53 footer, .page-id-53 div.copyright, .page-id-53 header nav.main-navigation {
+  display: none;
+}
+
+.page-id-53 footer div.footer-links {
+  justify-content: center;
+}
+
+.page-id-53 header {
+  justify-content: center;
+}
+
+.page-id-53 header h1 {
+  font-size: 5vw;
+}
+
+div.shop h1 {
+  letter-spacing: -3px;
+}
+
 /*  LANDING-PAGE BANNER */
 div.hero-home {
   max-height: 90vh;
@@ -156,6 +197,10 @@ div.line {
   height: 1px;
   flex-grow: 1;
   display: block;
+}
+
+div.releases-divider {
+  align-items: center;
 }
 
 .bg-mds {
@@ -230,7 +275,38 @@ div.artist-banner-svg a {
   padding: 0 4px;
 }
 
+section.artists-divider div.line {
+  display: none;
+}
+
+div#mobile-line {
+  display: none;
+}
+
 /* NEWS INDEX */
+div.news-card {
+  cursor: pointer;
+  transition: border 1s;
+}
+
+div.news-card:hover {
+  border: solid 1px #000;
+}
+
+section.overlay-news {
+  width: 80vw;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-y: scroll;
+  z-index: 101;
+}
+
+/*.page-id-60 header {
+  background-color: #000;
+}*/
 
 @media (max-width: 786px) {
   div.footer-links {
@@ -244,6 +320,24 @@ div.artist-banner-svg a {
 
   ul li {
     padding: 0 0.5rem;
+  }
+
+  section.artist-banner {
+    flex-direction: column;
+  }
+
+  div.artist-heading {
+    padding-top: 2rem;
+    align-items: center;
+  }
+
+  div.artist-page-img {
+    width: 400px;
+    height: 336px;
+  }
+
+  section.artist-bio p {
+    padding-top: 2rem;
   }
 }
 
@@ -266,7 +360,36 @@ div.artist-banner-svg a {
     padding-top: 0;
   }
 
-  section.home-text h4 {
+  section.home-text h4, div.artist-heading h4 {
     font-size: 8vw;
+  }
+
+  div.artist-page-img {
+    width: 280px;
+    height: 240px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  header.site-header h1 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  section.artist-bio p {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  section.artists-divider div.line {
+    display: block;
+  }
+
+  div#mobile-line {
+    display: block;
+  }
+
+  div.releases-divider h4 {
+    font-size: 10vw;
   }
 }

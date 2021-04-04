@@ -183,7 +183,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function register_my_menu() {
 register_nav_menus(
     array(
-      'header-nav' => __( 'Header Nav' )
+      'header-nav' => __( 'Header Nav' ),
     )
   );
 }
@@ -200,6 +200,7 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
+add_action('init', 'register_my_menu' );
 
 
 /**

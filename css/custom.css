@@ -141,8 +141,6 @@ input[type="email"]:focus {
 }
 
 button.btn-black:hover, input[type="submit"]:hover {
-/*  border: solid 1px #FFFFFF;
-*/
   background-color: #FD5F00;
 }
 
@@ -156,8 +154,7 @@ video {
 
 /* HEADER STYLING */
 header {
-/*  background-color: rgba(0,0,0,0.64);
-*/  position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -169,6 +166,9 @@ header h1 {
   letter-spacing: -0.1em;
 }
 
+header svg {
+  display: none;
+}
 
 nav.main-navigation ul {
   justify-content: flex-end;
@@ -180,6 +180,11 @@ nav.main-navigation ul {
 
 .home nav.main-navigation ul {
   animation: fadein 3s 2s both;
+}
+
+.page-id-77 header {
+  position: sticky;
+  background-color: rgb(0,0,0) !important;
 }
 
 div.popup-overlay {
@@ -237,7 +242,7 @@ div.releases-divider {
 }
 
 .bg-mds {
-  background-image: url("http://orangecountyrecords.local/wp-content/uploads/2021/03/MacBook-Pro-1-scaled.jpg"); /* The image used */
+  background-image: url("https://res.cloudinary.com/dly8wkow2/image/upload/v1617832835/iMac_-_1_wehe48.jpg"); /* The image used */
   background-color: #363637;
   background-position: center;
   background-repeat: repeat;
@@ -246,33 +251,49 @@ div.releases-divider {
 
 /* ARTISTS INDEX */
 div.artist-card {
-  width: 280px;
+  width: 300px;
   height: auto;
+  border: solid 1px #FFFFFF;
+  filter: grayscale(100%);
+  color: #FFFFFF;
+  transition: filter 0.6s;
+  transition: background-color 0.6s;
+  transition: border-color 0.6;
+}
+
+div.artist-card a {
+  transition: color 0.6s;
+}
+
+div.artist-card div.divider {
+  background-color: #000000;
+  opacity: 25%;
+}
+
+div.artist-card-links, div.artist-website {
+  display: none;
+}
+
+div.artist-card:hover, div.artist-card a:hover {
+  background-color: #FD5F00;
+  border-color: #000000;
+  fill: #000000 !important;
+  filter: grayscale(0%);
+  color: #000000 !important;
+}
+
+div.artist-card svg:hover {
+  fill: #000000 !important;
 }
 
 div.artist-card-img {
-  width: 280px;
+  width: 298px;
   height: 392px;
-  border: solid 1px #FFFFFF;
-  filter: grayscale(100%);
   background-position: center;
 }
 
-div.artist-card-text {
-  border-left: solid 1px #FFFFFF;
-  border-right: solid 1px #FFFFFF;
-  border-bottom: solid 1px #FFFFFF;
-}
-
-.hover {
-  border-color: #000000;
-  filter: none;
-  background-color: #363637;
-  fill: #000000;
-}
-
-.divider-hover {
-  background-color: #000000;
+div.artist-card-img:hover {
+  filter: grayscale(0%);
 }
 
 div.artist-card-links svg {
@@ -294,6 +315,10 @@ div.artist-banner.aspect-ratio {
 
 div.artist-banner.aspect-ratio--object {
   position: relative;
+}
+
+.artist-card .aspect-ratio--5x7 {
+  padding-bottom: 130%;
 }
 
 div.artist-banner.aspect-ratio--4x3 {
@@ -352,6 +377,14 @@ section.title-mds {
 }
 
 @media (max-width: 786px) {
+  header nav#site-navigation {
+    display: none;
+  }
+
+  header svg {
+    display: block;
+  }
+
   section.title-mds {
     padding-top: 112px;
     padding-bottom: 16px;
@@ -391,6 +424,15 @@ section.title-mds {
   section.artist-banner {
     padding-top: 64px;
   }
+
+  div.artist-card, div.artist-card a {
+    background-color: #FD5F00;
+    border-color: #000000;
+    fill: #000000 !important;
+    filter: grayscale(0%);
+    color: #000000 !important;
+  }
+
 }
 
 @media (max-width: 425px) {

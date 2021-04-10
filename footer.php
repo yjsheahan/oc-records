@@ -17,7 +17,6 @@
         <li><a id="subscribe" href="#">Subscribe</a></li>
         <li><a href="https://www.yasminjonessheahan.com/">Site by</a></li>
       </ul>
-
       <ul>
         <li>
           <a href="#" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
@@ -60,12 +59,7 @@
       <p class="pt3 pb0 ma0 flex items-center justify-center f7"><img class="pr2" style="width: 30px;" src="https://img.icons8.com/windows/32/ffffff/copyright.png"/> Orange County Records UK Ltd. <?php echo date('Y'); ?></p>
 	  </div>
   </footer><!-- #colophon -->
-  <div class="popup-overlay bg-white">
-
-  </div>
 </div><!-- #page -->
-
 <?php wp_footer(); ?>
-
 </body>
 </html>

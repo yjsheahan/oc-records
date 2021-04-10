@@ -1,14 +1,9 @@
-<div class="artists-page min-vh-100">
-  <section class="title-mds bg-mds pt6 pb4">
+<div class="artists-page bg-mds min-vh-100">
+  <section class="title-mds pt6 pb4">
     <h2 class="text-white ttu tc"><?php the_title(); ?></h2>
   </section>
-
   <section class="artists-index cf pv4 ph6-l">
     <?php
-
-    $background = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
-
-
     $args = array(
       'posts_per_page' => -1,
       'post_type' => 'artists',
@@ -27,8 +22,7 @@
                   background-image: url(<?php the_field('image'); ?>); ?>
                   <?php endif; ?>" class="artist-card-img aspect-ratio--object cover"></div>
               </div>
-              <div class="artist-card-text">
-                <h4 class="ma0 tc pa2"><?php the_title(); ?></h4>
+               <h4 class="ma0 tc pa2"><?php the_title(); ?></h4>
                 <div class="divider"></div>
                 <div class="artist-card-links flex justify-center items-center pa3">
                    <?php if( get_field('apple_music') ) { ?>
@@ -67,29 +61,17 @@
                     </a>
                   <?php } ?>
                 </div>
-                <div class="tc flex justify-center items-center">
+                <div class="artist-website tc flex justify-center items-center">
                   <?php if( get_field('website') ) { ?>
                     <a href="<?php echo get_field('website'); ?>">
                       <p class="ttc mb3 mt0">Artist Website >
-<!--                         <svg width="35" height="16" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <rect width="35" height="35" fill="url(#pattern0)"/>
-                          <defs>
-                          <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                          <use xlink:href="#image0" transform="scale(0.0208333)"/>
-                          </pattern>
-                          <image id="image0" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAA20lEQVRoBe2VsQ3CMBBF01AjdmANRqFlFgahYhLYghXokR6ySBTihOA0sS09N47js+/fc77TNDYJSEACEpCABCQgAQlIQAKFEACuwK4QOctl8GkP4LB8dQEr2gJC9wLOwKYAWekSvgroHu/APn2HzJGd6qh/AqfM0tLSR8Lj4djgcUQF46HBKxA8JbE3+NRsBe+qLmD4CaVZa72oP6c/NvF60tIy/SggXKPHtB0yR00UcKv1R9YbNTPURenbEyjbqHMVARdgOxfjnAQkIAEJSEACEpCABCQggUDgDY/52lwMfvWJAAAAAElFTkSuQmCC"/>
-                          </defs>
-                        </svg> -->
                       </p>
                     </a>
                   <?php } ?>
                 </div>
-              </div>
             </a>
           </div>
         </div>
-
     <?php endwhile; endif; ?>
   </section>
-
 </div>

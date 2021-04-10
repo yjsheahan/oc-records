@@ -27,8 +27,14 @@
 <div id="page" class="site min-vh-100">
 	<header id="masthead" class="site-header flex justify-between items-center w-100">
     <h1 class="ttu text-white mv0 ph3"><a href="<?php echo home_url(); ?>">OrangeCounty<span class="text-orange">Records</span></a></h1>
-
 		<nav id="site-navigation" class="main-navigation pt3 pr3">
       <?php wp_nav_menu( array( 'theme_location' => 'header-nav' ) ); ?>
 		</nav><!-- #site-navigation -->
+    <div class="pr2">
+      <svg fill="#FFFFFF" viewBox="0 0 100 80" width="20" height="20">
+          <rect width="100" height="10"></rect>
+          <rect y="30" width="100" height="10"></rect>
+          <rect y="60" width="100" height="10"></rect>
+      </svg>
+    </div>
 	</header><!-- #masthead -->

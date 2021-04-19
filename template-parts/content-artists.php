@@ -60,11 +60,11 @@
   <section class="artists-divider">
   <div class="line bg-white w-50" style="margin: auto; opacity: 30%;"></div>
   </section>
-  <section class="artist-bio pb5 ph6-l ph5-m ph4 text-white tracked-tight">
+  <section class="artist-bio pb5 ph6-l ph5-m ph4 text-white tracked-tight" id="fade-in">
     <?php the_content(); ?>
   </section>
   <section class="bg-orange mw9 pb4 center">
-    <div class="releases-divider flex w-100">
+    <div class="releases-divider flex w-100" id="fade-in">
       <div class="line bg-black artist-divider"></div>
       <h4 class="text-black ph4 tc mv4 mh0">Releases</h4>
       <div class="line bg-black artist-divider"></div>
@@ -80,7 +80,7 @@
       'post_type' => 'post',
       'orderby' => 'date',
       'order' => 'ASC',
-      'tag' => 'cino-payso'
+      'category_name' => 'releases'
     );
 
     $query = new WP_Query( $args );
@@ -88,24 +88,56 @@
     if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
         <div class="release-card fl w-100 w-third-ns pa4" id="fade-in">
           <div class="bg-white">
-            <a href="<?php the_permalink(); ?>">
-               <div class="aspect-ratio aspect-ratio--1x1">
-                    <div style="<?php if( get_field('image') ): ?>
+<!--             <a href="<?php the_permalink(); ?>">
+ -->
+              <div class="aspect-ratio aspect-ratio--1x1">
+                  <div style="<?php if( get_field('image') ): ?>
                     background-image: url(<?php the_field('image'); ?>); ?>
                     <?php endif; ?>" class="news-img aspect-ratio--object cover"></div>
-                </div>
-                <div class="w-100 flex flex-column justify-center ph4 pv3 text-black">
-                <h4 class="f2 ma0 tl"><?php the_field('artist_name'); ?></h4>
-                <p class="ma0 ttc"><?php the_field('title_of_release'); ?></p>
-              </div>
-            </a>
-          </div>
-        </div>
+                  </div>
+                  <div class="w-100 flex flex-column justify-center ph4 pv3 text-black">
+                    <h4 class="f2 ma0 tl"><?php the_field('artist_name'); ?></h4>
+                    <p class="ma0 ttc"><?php the_field('title_of_release'); ?></p>
+                  </div>
+<!--             </a>
+ -->          </div>
 
+        </div>
     <?php endwhile; endif; ?>
     </div>
 
   </section>
 </div>
+<?php
+
+  $background = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
+
+
+  $args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'post',
+    'orderby' => 'date',
+    'order' => 'ASC',
+    'category_name' => 'releases'
+  );
+
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ): while ( $query->have_posts() ): $query->the_post(); ?>
+  <div class="popup-release bg-white text-black w-55 pv3">
+    <h1 class="ttu tracked-tight"><?php the_title(); ?></h1>
+    <div class="pv1">
+      <?php if( get_field('youtube_link') ): ?>
+        <?php the_field('youtube_link'); ?>
+      <?php endif; ?>
+    </div>
+    <div class="w-80 flex flex-column justify-center">
+      <?php custom_excerpt_length( the_excerpt() ); ?>
+      <button class="fc"><a href="<?php the_permalink(); ?>">Read more</a></button>
+    </div>
+    <div class="close-circle bg-black"></div>
+  </div>
+<?php endwhile; endif; ?>
+
 
 

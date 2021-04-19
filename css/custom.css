@@ -16,6 +16,15 @@
   }
 }
 
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes slidedown {
   0% {
     opacity: 0;
@@ -24,6 +33,28 @@
   100% {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+@keyframes slideinleft {
+  0% {
+    opacity: 0;
+    transform: translate(100vw, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideoffright {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100vw, 0);
   }
 }
 
@@ -103,7 +134,7 @@ ul li {
   opacity: 40%;
 }
 
-button.btn-black, button, input[type="button"], input[type="reset"], input[type="submit"] {
+button.btn-black, button, input[type="button"], input[type="reset"], input[type="submit"], div.wpforms-container-full .wpforms-form button[type=submit] {
   background-color: #000000;
   padding: 1rem 2rem;
   text-transform: uppercase;
@@ -174,12 +205,77 @@ nav.main-navigation ul {
   justify-content: flex-end;
 }
 
+h1.oc-nav {
+  line-height: 0.01;
+}
+
+h1.records-nav {
+  line-height: 1.4;
+}
+
+div#mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+div#mobile-nav ul {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.mobile-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div.mobile-socials a {
+  padding: 0.5rem 1rem;
+  color: black !important;
+}
+
+div.mobile-socials svg {
+  width: 24px;
+  height: 24px;
+}
+
+ul#menu-mobile-nav li {
+  padding: 0.5rem 0;
+  font-size: 16px;
+  color: black !important;
+/*  background-color: #000000;
+*//*  border: solid 1px #ffffff;
+*/  padding: 0.5rem 2rem;
+  margin: 0.5rem 0;
+}
+
+div.home-button-mobile {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+/*  border: solid 1px #FFFFFF;
+*/  position: fixed;
+  top: 2rem;
+  right: 0;
+}
+
 .home header h1 {
   animation: fadein 3s 1s both;
 }
 
-.home nav.main-navigation ul {
+.home nav.main-navigation ul, .home div#hamburger {
   animation: fadein 3s 2s both;
+}
+
+div#hamburger {
+  display: none;
 }
 
 .page-id-77 header {
@@ -199,7 +295,7 @@ div.popup-overlay {
   display: none;
 }
 
-.page-id-53 footer, .page-id-53 div.copyright, .page-id-53 header nav.main-navigation {
+.page-id-53 footer, .page-id-53 div.copyright, .page-id-53 header nav.main-navigation, .page-id-53 div#hamburger {
   display: none;
 }
 
@@ -242,9 +338,9 @@ div.releases-divider {
 }
 
 .bg-mds {
-  background-image: url("https://res.cloudinary.com/dly8wkow2/image/upload/v1617832835/iMac_-_1_wehe48.jpg"); /* The image used */
+  background-image: url("https://res.cloudinary.com/dly8wkow2/image/upload/v1618491106/MacBook_Pro_-_1_1_ozulak.jpg"); /* The image used */
   background-color: #363637;
-  background-position: center;
+  background-position: top;
   background-repeat: repeat;
   background-size: cover;
 }
@@ -290,6 +386,7 @@ div.artist-card-img {
   width: 298px;
   height: 392px;
   background-position: center;
+  transition: filter 1s;
 }
 
 div.artist-card-img:hover {
@@ -303,7 +400,7 @@ div.artist-card-links svg {
 /* INDIVIDUAL ARTIST PAGE */
 div.artist-page-img {
   width: 496px;
-  height: 400px;
+  height: 496px;
   background-position: center;
   background-size: cover;
 }
@@ -341,14 +438,44 @@ div#mobile-line {
   display: none;
 }
 
+div.popup-release {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  z-index: 1000;
+/*  justify-content: center;
+*/  align-items: center;
+  padding: 2rem;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll !important;
+  display: none;
+}
+
+div.popup-release p, div.popup-release h1 {
+  text-align: center;
+}
+
+div.close-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
 /* NEWS INDEX */
 div.news-card {
   cursor: pointer;
   transition: border 1s;
 }
 
-div.news-card:hover {
-  border: solid 1px #FFFFFF;
+div.news-card div.news-img:hover {
+  filter: grayscale(50%);
 }
 
 section.overlay-news {
@@ -370,6 +497,22 @@ section.title-mds {
   background-color: #000;
 }*/
 
+div.contact-container {
+  border-radius: 2px;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field-label {
+  text-transform: uppercase;
+  font-size: 2vw;
+  letter-spacing: -.05em;
+}
+
+div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form input[type=email],
+div.wpforms-container-full .wpforms-form textarea {
+  background-color: rgba(255,255,255,0.9);
+  width: 100%;
+}
+
 @media (min-width: 1441px) {
   section.title-mds h2 {
     padding-top: 120px;
@@ -377,6 +520,14 @@ section.title-mds {
 }
 
 @media (max-width: 786px) {
+/*  div#mobile-nav {
+    display: flex;
+  }*/
+
+  div.home-button-mobile {
+    padding-right: 1rem;
+  }
+
   header nav#site-navigation {
     display: none;
   }
@@ -440,6 +591,10 @@ section.title-mds {
     font-size: 5vw;
   }
 
+  div.home-button-mobile {
+    top: 1rem;
+  }
+
   section.title-mds {
     padding-top: 80px;
     padding-bottom: 16px;
@@ -494,5 +649,19 @@ section.title-mds {
 
   section.artist-banner {
     padding-top: 20px;
+  }
+
+  div.contact-container {
+    width: 80vw;
+  }
+
+  div.contact-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  div.home-button-mobile {
+    padding-right: 1rem;
   }
 }

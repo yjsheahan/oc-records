@@ -746,11 +746,11 @@ textarea {
 .sticky {
 	display: block;
 }
-
+/*
 .post,
 .page {
 	margin: 0 0 1.5em;
-}
+}*/
 
 .updated:not(.published) {
 	display: none;

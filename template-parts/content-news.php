@@ -1,9 +1,9 @@
-<div class="news text-white min-vh-100">
-  <section class="title-mds bg-mds pt6-l pb2-l">
+<div class="news text-white min-vh-100 bg-mds">
+  <section class="title-mds pt6-l pb2-l" style="display: none;">
     <h2 class="text-white ttu tc "><?php the_title(); ?></h2>
   </section>
 
-  <section class="news-card-index mw9 center ph3-ns pb4 mv4">
+  <section class="news-card-index mw9 center ph3-ns pb4" style="padding-top: 220px;">
     <div class="cf ph2-ns">
     <?php
 

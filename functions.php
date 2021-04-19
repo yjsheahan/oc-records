@@ -184,6 +184,7 @@ function register_my_menu() {
 register_nav_menus(
     array(
       'header-nav' => __( 'Header Nav' ),
+      'mobile-nav' => __( 'Mobile Nav' ),
     )
   );
 }

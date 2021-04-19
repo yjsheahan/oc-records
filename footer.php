@@ -14,7 +14,7 @@
 	<footer id="colophon" class="site-footer bg-black text-white pa3">
     <div class="footer-links flex justify-between items-center">
       <ul class="footer-nav">
-        <li><a id="subscribe" href="#">Subscribe</a></li>
+        <li id="subscribe" class="ttu" style="  font-family: 'Oswald', sans-serif; cursor: pointer; font-style: 700;">Subscribe</li>
         <li><a href="https://www.yasminjonessheahan.com/">Site by</a></li>
       </ul>
       <ul>
@@ -59,6 +59,20 @@
       <p class="pt3 pb0 ma0 flex items-center justify-center f7"><img class="pr2" style="width: 30px;" src="https://img.icons8.com/windows/32/ffffff/copyright.png"/><?php echo date('Y'); ?> Cino Payso Records</p>
 	  </div>
   </footer><!-- #colophon -->
+
+  <div class="popup-subscribe bg-orange ph3">
+    <h1 class="ttu text-black">Subscribe for updates</h1>
+    <p class="ttu">
+      <label>
+        <input type="email" name="EMAIL" placeholder="" required />
+    </label>
+    </p>
+
+    <p class="ttu">
+      <input type="submit" value="SUBSCRIBE" class="btn-subscribe" />
+    </p>
+    <div class="subscribe-close-circle bg-white"></div>
+  </div>
 </div><!-- #page -->
 <?php wp_footer(); ?>
 </body>

@@ -280,8 +280,12 @@ div#hamburger {
 
 .page-id-77 header {
   position: sticky;
-  background-color: rgb(0,0,0) !important;
+/*  background-color: rgb(0,0,0) !important;*/
 }
+
+/*.page-id-77 header h1 {
+  display: none;
+}*/
 
 div.popup-overlay {
   width: 400px;
@@ -313,6 +317,22 @@ div.popup-overlay {
 
 div.shop h1 {
   letter-spacing: -3px;
+}
+
+div.popup-subscribe {
+  width: 75vh;
+  height: 280px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #000000;
+  box-shadow: 1px 2px 2px #000000;
 }
 
 /*  LANDING-PAGE BANNER */
@@ -466,6 +486,22 @@ div.close-circle {
   position: fixed;
   top: 2rem;
   right: 2rem;
+  cursor: pointer;
+}
+
+div.subscribe-close-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  border: solid 1px #000000;
+}
+
+div.release-card {
+  cursor: pointer;
 }
 
 /* NEWS INDEX */
@@ -499,6 +535,20 @@ section.title-mds {
 
 div.contact-container {
   border-radius: 2px;
+}
+
+div.aspect-ratio#contact-banner {
+  position: unset;
+}
+
+div.aspect-ratio--8x5#contact-banner {
+  padding-bottom: 0;
+}
+
+div#contact-banner div.aspect-ratio--object {
+  height: 100%;
+  width: 50%;
+  filter: grayscale(100%);
 }
 
 div.wpforms-container-full .wpforms-form .wpforms-field-label {

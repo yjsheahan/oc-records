@@ -132,8 +132,8 @@
       <?php endif; ?>
     </div>
     <div class="w-80 flex flex-column justify-center">
-      <?php custom_excerpt_length( the_excerpt() ); ?>
-      <button class="fc"><a href="<?php the_permalink(); ?>">Read more</a></button>
+      <?php the_content(); ?>
+      <button class="fc"><a href="<?php the_permalink(); ?>">Close</a></button>
     </div>
     <div class="close-circle bg-black"></div>
   </div>
